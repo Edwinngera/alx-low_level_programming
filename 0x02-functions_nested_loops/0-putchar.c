@@ -3,12 +3,15 @@
  * main - prints the string "Holberton" from a character array.
  * Return: 0 on success.
  */
-
- 
 int main(void)
 {
-	_putchar("_putchar")
+	char c[] = "_putchar";
+	int i;
+
+	for (i = 0; i < 7; i++)
+	{
+		_putchar(c[i]);
+	}
 	_putchar('\n');
 	return (0);
 }
-
