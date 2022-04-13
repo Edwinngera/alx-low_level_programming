@@ -1,13 +1,15 @@
-#include <stdio.h>
 #include "3-calc.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 /**
- * get_op_func - searchs for an integer
- *@s:string
- *
- * Return: no return
+ * get_op_func - get an operation
+ * @s: operator
+ * Return: No
  */
-int (*get_op_func(char *s))(int a, int b)
+
+int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
 		{"+", op_add},
@@ -17,14 +19,16 @@ int (*get_op_func(char *s))(int a, int b)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
-	int i;
+	int i = 0;
 
-	i = 0;
-	while (i < 5)
+	while (ops[i].op)
 	{
-		if (s[0] == ops[i].op[0])
-			return ((ops[i].f));
+		if (strcmp(s, ops[i].op) == 0)
+		{
+			return (ops[i].f);
+		}
 		i++;
 	}
-	return (NULL);
+	printf("Error\n");
+	exit(99);
 }
